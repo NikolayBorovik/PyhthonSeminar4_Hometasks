@@ -15,6 +15,18 @@
 from random import randint
 
 n = int(input('Enter size of the 1st set: '))
-list1 = [randint(0,9) for i in range(n)]
-print(list1)
-
+list = [randint(0,9) for i in range(n)]
+print(list)
+n=3
+max = 0
+for i in range(len(list)):
+    if i == len(list)-2:
+        count = list[i] + list[i+1] + list[0]
+    elif i == len(list)-1:
+        count = list[i] + list[0] + list[1]
+    else:
+        count = list[i] + list[i+1] + list[i+2]
+    if count > max:
+        max = count
+        index = i
+print(f'The max number of berries to be collected is: {max}, the bush set to target starts from index: {index}')
